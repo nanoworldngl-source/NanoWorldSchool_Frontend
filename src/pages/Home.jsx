@@ -101,6 +101,26 @@ function Home() {
         title="Home" 
         description="Experience world-class education at Nano World School. Focusing on experiential learning, holistic development, and smart educational infrastructure."
       />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "School",
+          "name": "Nano World School",
+          "url": "https://nanoworldschool.co.in",
+          "logo": "https://nanoworldschool.co.in/favicon.jpeg",
+          "description": "A premium holistic educational institution in Hyderabad focusing on experiential learning and leadership.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Plot No. 45, Nano World School Road",
+            "addressLocality": "Hyderabad",
+            "addressRegion": "Telangana",
+            "postalCode": "500001",
+            "addressCountry": "IN"
+          },
+          "telephone": "+919876543210",
+          "openingHours": "Mo-Su 08:30-18:30"
+        })}
+      </script>
       {/* Hero Section */}
 
       <header className="hero" style={{ overflow: 'hidden', position: 'relative' }}>

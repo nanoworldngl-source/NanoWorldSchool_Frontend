@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { Mail, Phone, MapPin, Clock, Send, Facebook, Instagram, Twitter, Youtube, Link as LinkIcon } from 'lucide-react';
 import api from '../utils/api';
 
 function Contact() {
+  const navigate = useNavigate();
   const [settings, setSettings] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
@@ -36,8 +38,8 @@ function Contact() {
 
     try {
       await api.post('/contact', formData);
-      alert('Thank you for your enquiry! Our team will get back to you shortly.');
       setFormData({ name: '', email: '', phone: '', grade: '', message: '' });
+      navigate('/thank-you');
     } catch (error) {
       console.error('Submission error:', error);
       alert('Something went wrong. Please try again or call us directly.');

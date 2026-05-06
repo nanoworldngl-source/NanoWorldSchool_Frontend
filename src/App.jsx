@@ -8,6 +8,7 @@ import Contact from './pages/Contact';
 import About from './pages/About';
 import Academics from './pages/Academics';
 import Gallery from './pages/Gallery';
+import ThankYou from './pages/ThankYou';
 import AdminLayout from './admin/AdminLayout';
 import Dashboard from './admin/Dashboard';
 import Inbox from './admin/Inbox';
@@ -21,6 +22,7 @@ import SetPassword from './pages/auth/SetPassword';
 import AcceptInvitation from './pages/auth/AcceptInvitation';
 import Setup from './pages/auth/Setup';
 import CookieConsent from './components/CookieConsent';
+import FloatingContact from './components/FloatingContact';
 
 
 
@@ -100,6 +102,7 @@ function AppContent() {
 
   return (
     <>
+      <FloatingContact />
       {!hideLayout && <AnnouncementBar />}
       {!hideLayout && <Navbar />}
       <AppRoutes />
@@ -120,6 +123,7 @@ function AppRoutes() {
         <Route path="/academics" element={<Academics />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/thank-you" element={<ThankYou />} />
         
         {/* Admin Routes (Protected) */}
         <Route element={<ProtectedRoute />}>
