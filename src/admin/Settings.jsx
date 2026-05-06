@@ -9,6 +9,7 @@ function Settings() {
     siteName: 'Nano World School',
     contactEmail: '',
     contactPhone: '',
+    whatsappNumber: '',
     address: '',
     logoUrl: '',
     faviconUrl: '',
@@ -139,6 +140,15 @@ function Settings() {
               <div className="floating-label-group">
                 <input type="text" value={settings.contactPhone} onChange={e => setSettings({...settings, contactPhone: e.target.value})} required />
                 <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Phone size={16} /> Contact Phone</label>
+              </div>
+              <div className="floating-label-group">
+                <input type="text" value={settings.whatsappNumber} onChange={e => setSettings({...settings, whatsappNumber: e.target.value})} />
+                <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M12.031 2c-5.506 0-9.969 4.462-9.969 9.969 0 1.763.459 3.42 1.262 4.862l-1.341 4.904 5.021-1.317c1.408.766 3.013 1.206 4.719 1.206 5.507 0 9.969-4.462 9.969-9.969s-4.462-9.969-9.961-9.969zm6.393 14.129c-.279.782-1.629 1.442-2.25 1.536-.563.084-1.294.131-3.666-.848-3.034-1.253-4.992-4.331-5.143-4.531-.152-.201-1.231-1.637-1.231-3.12 0-1.483.774-2.211 1.05-2.513.275-.301.6-.377.799-.377.201 0 .403.001.577.009.183.008.43-.07.674.515.245.586.837 2.036.91 2.187.073.151.122.327.025.527-.099.2-.148.327-.295.498-.148.172-.311.385-.443.516-.148.147-.304.309-.131.606.173.297.771 1.272 1.656 2.059.1.088.195.176.287.256.402.348.65.452.9.57.25.118.4.1.55-.074.15-.173.65-.758.825-1.018.174-.26.349-.219.587-.13.238.089 1.512.713 1.774.843.262.13.437.195.5.305.062.11.062.637-.217 1.419z" />
+                  </svg>
+                  WhatsApp Number
+                </label>
               </div>
               <div className="floating-label-group">
                 <textarea rows="3" value={settings.address} onChange={e => setSettings({...settings, address: e.target.value})} required />

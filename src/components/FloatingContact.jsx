@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, Phone } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import api from '../utils/api';
 
 function FloatingContact() {
-  const whatsappNumber = '+919876543210'; // Update with real number
-  const phoneNumber = '+919876543210';
+  const [settings, setSettings] = useState(null);
+  
+  useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const res = await api.get('/settings');
+        setSettings(res.data);
+      } catch (err) {
+        console.warn('Failed to fetch contact settings');
+      }
+    };
+    fetchSettings();
+  }, []);
+
+  const rawNumber = settings?.whatsappNumber || settings?.contactPhone || '919876543210'; 
+  const cleanNumber = rawNumber.replace(/\D/g, ''); // Remove all non-digits
+  const message = encodeURIComponent("Hi, I'm interested in Nano World School admissions.");
   
   const trackConversion = (type) => {
     if (window.gtag) {
@@ -22,31 +38,18 @@ function FloatingContact() {
         <div className="floating-contact-container">
           {/* WhatsApp Button */}
           <motion.a
-            href={`https://wa.me/${whatsappNumber}`}
+            href={`https://wa.me/${cleanNumber}?text=${message}`}
             target="_blank"
             rel="noreferrer"
-            className="floating-btn whatsapp"
+            className="floating-btn whatsapp pulse"
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             whileHover={{ scale: 1.1 }}
             onClick={() => trackConversion('WhatsApp')}
             aria-label="Contact on WhatsApp"
           >
-            <MessageCircle size={24} />
-          </motion.a>
-
-          {/* Call Button */}
-          <motion.a
-            href={`tel:${phoneNumber}`}
-            className="floating-btn call"
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.1 }}
-            whileHover={{ scale: 1.1 }}
-            onClick={() => trackConversion('Phone')}
-            aria-label="Call Us"
-          >
-            <Phone size={24} />
+            <img src="/whatsapp.svg" alt="WhatsApp" style={{ width: '100%', height: '100%', padding: '0px' }} />
+            <span className="tooltip-text">Chat with us</span>
           </motion.a>
         </div>
 
