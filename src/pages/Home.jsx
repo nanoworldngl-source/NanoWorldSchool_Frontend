@@ -106,8 +106,8 @@ function Home() {
           "@context": "https://schema.org",
           "@type": "School",
           "name": "Nano World School",
-          "url": "https://nanoworldschool.co.in",
-          "logo": "https://nanoworldschool.co.in/favicon.jpeg",
+          "url": "https://www.nanoworldschool.online/",
+          "logo": "https://www.nanoworldschool.online/favicon.jpeg",
           "description": "A premium holistic educational institution in Hyderabad focusing on experiential learning and leadership.",
           "address": {
             "@type": "PostalAddress",

@@ -46,7 +46,7 @@ const LinkedinIcon = () => (
 
 function Footer() {
   const [settings, setSettings] = useState({
-    contactEmail: 'info@nanoworldschool.co.in',
+    contactEmail: 'info@nanoworldschool.online',
     contactPhone: '+91 98765 43210',
     address: 'Nano World School Road, Hyderabad',
     facebookUrl: '#',
